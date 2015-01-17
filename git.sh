@@ -1,5 +1,6 @@
 http://gitref.org/basic/
 git status
+git add .
 git commit -a -m "msg"
 git push
 
