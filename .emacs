@@ -175,7 +175,7 @@
 ;(load "~/md/min/ubuntu/xclip.el")
 ;(turn-on-xclip)
 
-;(load "undo-tree.el")
+(load "undo-tree.el")
 
 ;(load "~/md/min/redo.el")
 ;(global-set-key [(meta backspace)] 'undo)
