@@ -172,10 +172,10 @@
   (scroll-behind (prefix-numeric-value n)))
 
 
-(load "~/md/min/ubuntu/xclip.el")
-(turn-on-xclip)
+;(load "~/md/min/ubuntu/xclip.el")
+;(turn-on-xclip)
 
-(load "~/md/min/undo-tree.el")
+;(load "undo-tree.el")
 
 ;(load "~/md/min/redo.el")
 ;(global-set-key [(meta backspace)] 'undo)
@@ -644,12 +644,12 @@
 ;(global-set-key [f7] 'mypymacs-break-on-whitespace)
 
 ; solved: 1,2,3,4
-(add-to-list 'load-path "~/md/min/emacs-sokoban-0.14.1/")
-(setq sokoban-levels-dir "~/md/min/emacs-sokoban-0.14.1/sokoban-levels")
-(autoload 'sokoban "sokoban.el"
-  "Start a new game of Sokoban." t)
-(autoload 'sokoban-mode "sokoban.el"
-  "Play Sokoban in current buffer." t)
+;(add-to-list 'load-path "~/md/min/emacs-sokoban-0.14.1/")
+;(setq sokoban-levels-dir "~/md/min/emacs-sokoban-0.14.1/sokoban-levels")
+;(autoload 'sokoban "sokoban.el"
+;  "Start a new game of Sokoban." t)
+;(autoload 'sokoban-mode "sokoban.el"
+;  "Play Sokoban in current buffer." t)
 
 
 
@@ -816,9 +816,9 @@
 (require 'epa-file)
 (epa-file-enable)
 
-(load "~/md/min/ubuntu/csv-mode.el")
-(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
-(autoload 'csv-mode "csv-mode" "Major mode for editing comma-separated value files." t)
+;(load "~/md/min/ubuntu/csv-mode.el")
+;(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+;(autoload 'csv-mode "csv-mode" "Major mode for editing comma-separated value files." t)
 
 (defun ask-user-about-supersession-threat (fn)
   "blatantly ignore files that changed on disk"
