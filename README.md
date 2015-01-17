@@ -1,1 +1,1 @@
-ide
+emacs config and code snippets
