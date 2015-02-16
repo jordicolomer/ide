@@ -1,0 +1,82 @@
+#workspace
+install vagrant ansible
+vagrant up
+vagrant provision # if it fails to run ansible
+vagrant ssh
+
+#inside
+install python-pip postgresql-server-dev-9.3 git
+sudo pip install -r requirements.txt
+python manage.py runserver 0.0.0.0:8000
+cd frontend/webapp
+grunt
+
+
+python manage.py compilejs
+
+hello@resmio.com
+123thefish
+
+
+
+
+
+
+
+
+#switch to master
+git checkout master
+#download master
+git pull origin master
+#create new branch
+git checkout -b download-all-urls
+#do commits
+git push origin download-all-urls
+
+
+#delete a branch
+git branch -d tfidf-with-gensim
+
+
+
+# get master
+git pull
+#discard changes
+git checkout -- .
+git reset --hard HEAD
+
+# push a new branch
+git add filelist
+git commit -m '454-add-default-comment-parameter-to-button, fixes #454'
+git checkout -b 454-add-default-comment-parameter-to-button # crear nueva rama
+git pull
+git merge master
+git push
+
+
+git checkout master
+git checkout -b 454-add-default-comment-parameter-to-button
+git commit -am '454-add-default-comment-parameter-to-button, fixes #454'
+git push -u origin 454-add-default-comment-parameter-to-button
+git pull
+git merge master
+git push
+git remote set-url origin https://name:password@github.org/repo.git
+
+#discard changes
+git checkout -- .
+
+
+git push origin 454-add-default-comment-parameter-to-button
+
+
+git clone https://github.com/resmio/hollow-butter.git
+
+
+machine github.com
+       login <user>
+       password <password>
+
+
+resmio/bookoya/templates/resmio/button.js
+resmio/bookoya/templates/resmio/signin.html
