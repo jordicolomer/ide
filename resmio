@@ -1,3 +1,27 @@
+ #profit project
+pep8 *.py
+
+
+
+
+ #fix an issue
+#make sure you have master up to date
+git checkout master
+git pull origin master
+#create new branch
+git checkout -b experimental
+#edit
+#commit
+git add .
+git commit -m "460-facebook-like, fixes #460"
+#merge master into my branch
+#push branch
+git push origin 460-facebook-like
+#wait for test
+#check if its mergeable
+#pull request
+
+
 #workspace
 install vagrant ansible
 vagrant up
@@ -5,9 +29,9 @@ vagrant provision # if it fails to run ansible
 vagrant ssh
 
 #inside
-install python-pip postgresql-server-dev-9.3 git
-sudo pip install -r requirements.txt
+#sudo pip install -r requirements.txt
 python manage.py runserver 0.0.0.0:8000
+
 cd frontend/webapp
 grunt
 
@@ -80,3 +104,64 @@ machine github.com
 
 resmio/bookoya/templates/resmio/button.js
 resmio/bookoya/templates/resmio/signin.html
+
+
+# run tests
+python manage.py test bookoya
+17 mins in lenovo x200
+python manage.py test bookoya.tests.api.test_feedback.FeedbackResourceTestCase
+
+/resmio/bookoya/templates/resmio/appbase.html
+
+resmio/bookoya/templates/resmio/mails/base_templates/footer_resmio.html
+    <center>{% trans "Support" %}:<a href="tel:{% if LANGUAGE_CODE = 'de' %}08004401107{% else %}+493052669696{% endif %}">{% if LANGUAGE_CODE = 'de' %} 0800 4401107 {% else %} +49 (0) 30 52 66 96 96 {% endif %}</a>&nbsp;&nbsp;{% trans "or" %}&nbsp;&nbsp;<a href="mailto:support@resmio.com">support@resmio.com</a></center>
+
+resmio/bookoya/templates/resmio/mails/base_templates/footer_resmio.txt
+{% load i18n %}{% blocktrans with site_name=site.name|capfirst site_domain=site.domain %}support@resmio.com | +49 (0) 30 52 66 96 96 {{ site_domain }}{% endblocktrans %}
+
+
+{% if LANGUAGE_CODE = 'de' %} {% with "0800 4401107" as phone %} {% else %} {% with "+49 (0) 30 52 66 96 96" as phone %} {% endif %}
+{% load i18n %}{% blocktrans with site_name=site.name|capfirst site_domain=site.domain %}support@resmio.com | {{phonenumber}} {{ site_domain }}{% endblocktrans %}
+
+
+{% if LANGUAGE_CODE = 'de' %} {% with "0800 4401107" as phone %} {% else %} {% with "+49 (0) 30 52 66 96 96" as phone %} {% endif %}
+{% load i18n %}{% blocktrans with site_name=site.name|capfirst site_domain=site.domain %}support@resmio.com | {{phonenumber}} {{ site_domain }}{% endblocktrans %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+resmio/bookoya/templates/resmio/appbase.html
+div class="muted">{% trans "Customer service" %}: {% if LANGUAGE_CODE = 'de' %} 0800 4401107 {% else %} +49 30 52 66 96 96 {% endif %}</div>
+
+resmio/bookoya/templates/resmio/mails/base_templates/footer_resmio.txt
+{% load i18n %}
+{% if LANGUAGE_CODE = 'de' %}
+{% blocktrans with site_name=site.name|capfirst site_domain=site.domain %}support@resmio.com | 0800 4401107 {{ site_domain }}{% endblocktrans %}
+{% else %}
+{% blocktrans with site_name=site.name|capfirst site_domain=site.domain %}support@resmio.com | +49 (0) 30 52 66 96 96 {{ site_domain }}{% endblocktrans %}
+{% endif %}
+
+resmio/bookoya/templates/resmio/mails/base_templates/footer_resmio.html
+    <center>{% trans "Support" %}:<a href="tel:{% if LANGUAGE_CODE = 'de' %}08004401107{% else %}+493052669696{% endif %}">{% if LANGUAGE_CODE = 'de' %} 0800 4401107 {% else %} +49 (0) 30 52 66 96 96 {% endif %}</a>&nbsp;&nbsp;{% trans "or" %}&nbsp;&nbsp;<a href="mailto:support@resmio.com">support@resmio.com</a></center>
+git commit -m "changes custumer phone number according to language in web and emails, fixes #503"
+
+
+* replaced blacklist for a whitelist
+* fixed filterting non html with parameters
+* added two items to primary filter
+
+PAGER=cat git diff
+
+# rename
+git branch -m <oldname> <newname>
