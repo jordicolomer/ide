@@ -55,7 +55,7 @@
 ;(global-set-key "I" '(lambda () (interactive) (insert "	") ))
 (add-hook 'python-mode-hook
   (lambda ()
-    (setq indent-tabs-mode t)
+    ;(setq indent-tabs-mode t)
     (setq python-indent 4)
     (setq tab-width 4)))
 
@@ -820,14 +820,15 @@
 ;(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
 ;(autoload 'csv-mode "csv-mode" "Major mode for editing comma-separated value files." t)
 
-(defun ask-user-about-supersession-threat (fn)
-  "blatantly ignore files that changed on disk"
-  )
-(defun ask-user-about-lock (file opponent)
-  "always grab lock"
-   t)
+;(defun ask-user-about-supersession-threat (fn)
+;  "blatantly ignore files that changed on disk"
+;  )
+;(defun ask-user-about-lock (file opponent)
+;  "always grab lock"
+;   t)
 
-(defun verify-visited-file-modtime (fn)
-  "always not visited"
-   t)
+;(defun verify-visited-file-modtime (fn)
+;  "always not visited"
+;   t)
  
+;(global-auto-revert-mode 1)
