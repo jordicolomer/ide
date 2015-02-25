@@ -1,0 +1,200 @@
+%minimal
+\documentclass{article}
+\begin{document}
+Hola
+\end{document}
+
+
+
+
+%\documentclass[11pt,a4paper,oneside]{report}
+\documentclass[twocolumn]{article}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+% remove temporal files if you disable spanish options
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+%\usepackage{showframe}
+\usepackage{fullpage}
+
+\usepackage{setspace}
+\setstretch{1.3}
+
+\begin{document}
+\nocite{*}
+
+\title{Descibrimiento de informacion en textos: Tarea 6}
+\author{Jordi Colomer}
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\begin{abstract}
+resumen
+\end{abstract}
+
+%\tableofcontents
+
+\section{Introduccion}
+
+
+\begin{figure}[h!]
+\subfloat{\includegraphics[width=.6\textwidth]{/tmp/dist.pdf}}
+\caption{Distribution}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering\begin{tabular}{ lll }
+\hline
+n & n & n \\
+\hline
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \\
+\hline
+\end{tabular}
+\caption{Simulation}\label{fig:1}
+\end{table}
+
+\newpage
+\input{filename.tex}
+
+\begin{itemize}
+\item blah
+\item bla
+\item \textbf{Exactitud}: Numero de instancias clasificadas correctamente.
+\end{itemize}
+
+\begin{enumerate}
+  \item The first item
+  \item The second item
+  \item The third etc \ldots
+\end{enumerate}
+
+% allowed symbols a-z A-Z 0-9 and -
+% no multiple extensions!
+% http://wiki.lyx.org/LaTeX/FilesWithSpecialChars
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=140mm]{res/network.png}
+\caption{diseno de la red neuronal}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+\centering\includegraphics[width=.5\textwidth]{backpropagation_1.pdf}
+\caption{backpropagation1}\label{fig:1}
+\end{figure}
+
+\ref{fig:backpropagation1}
+
+\cite{Jurafsky}
+
+\begin{thebibliography}{99}
+\bibitem{Jurafsky} AUTHORS (2008),\emph{TITLE}.PUBLISHED
+\bibitem{Marcu} Marcu, Daniel (2000) \emph{The Theory and Practice of Discourse Parsing and Summarization}.
+\bibitem{precision} http://en.wikipedia.org/wiki/Precision\_and\_recall
+\end{thebibliography}
+
+\begin{thebibliography}{99}
+\bibitem{UNED} Spina, Damiano, et al. "UNED Online Reputation Monitoring Team at RepLab 2013."
+\bibitem{REINA} Berrocal, José Luis Alonso, Carlos G. Figuerola, and Ángel Zazo Rodríguez. "REINA at RepLab2013 Topic Detection Task: Community Detection."
+\bibitem{Wang} Wang, X., McCallum, A.: Topics over time: a non-markov continuous-time model of topical trends. In: Proceedings of the 12th ACM SIGKDD international conference on Knowledge discovery and data mining. pp. 424{433. KDD '06, ACM, New York, NY, USA (2006)
+\bibitem{Spina} Spina, D., Gonzalo, J., Amigo, E.: Discovering filter keywords for company name disambiguation in twitter. Expert Systems with Applications 40(12), 4986 - 5003 (2013)
+\end{thebibliography}
+
+%bibtex version,to compile: pdflatex base;bibtex base;pdflatex base;pdflatex base (you must cite them in order to appear)
+\bibliographystyle{plain}
+\bibliography{papers}
+
+\end{document}
+
+
+
+% small table factor reduce shrink
+\usepackage{graphicx}
+\begin{table}[!htbp]
+\centering
+\tabcolsep=0.11cm
+\scalebox{0.72}{
+\begin{tabular}{ llllllll }
+\hline
+n & success & distance & generations & time (s) & nodes & configuration \\
+\hline
+\input{table.tex}
+\hline
+\end{tabular}
+}
+\caption{Results for different configurations.}\label{fig:t1}
+\end{table}
+
+\begin{verbatim}
+2389c
+\end{verbatim}
+
+%span
+\begin{table}[!htbp]
+\centering\begin{tabular}{ lllllll }
+\hline
+Medida & \multicolumn{2}{l}{Componente principal} & \multicolumn{2}{l}{Local Linear Embedding}  & \multicolumn{2}{l}{Mapas difusión} \\
+ & RBF & Poly & RBF & Poly & RBF & Poly \\
+\hline
+Correlation coefficient&                  0.0806 & -0.0209 & 0.0817 & 0.0818 & 0.2355 & 0.1499 \\
+Mean absolute error     &              4788.57 & 4874.31 & 4726.43 & 4712.26 & 4786.83 & 4921.65 \\
+Root mean squared error  &             8667.81  & 8689.74 & 8636.21 & 8632.52 & 8553.90 & 16510.44 \\
+Relative absolute error   &              85.48\% & 87.01\% & 84.37\% & 84.11\% & 85.44\% & 87.85\% \\
+Root relative squared error&            107.15\% & 107.42\% & 106.76\% & 106.72\% & 105.74\% & 204.11\% \\
+Total Number of Instances   &           831      & 831 & 831 & 831 & 831 & 831 \\
+\hline
+\end{tabular}
+\caption{Simulation}\label{fig:1}
+\end{table}
+
+\begin{equation}\label{eq1}
+cos^2(x^k, y_p)=\frac{(x^k . y_p)^2}{||x^k||^2||y_p||^2}, k=1..Q
+\end{equation}
+\eqref{eq1}
+
+
+\includegraphics[trim=1cm 2cm 3cm 4cm, clip=true, totalheight=0.5\textheight, angle=90]{figure}
+
+%alternative equation and text
+\[
+ \text{Correctness}(e,e') =
+  \begin{cases}
+   1 & L(e) = L(e') \leftrightarrow C(e) = C(e') \\
+   0       & otherwise
+  \end{cases}
+\]
+
+
+
+%non floating figures
+\usepackage{caption}
+
+\begin{center}
+
+\begin{tabular}{ llll }
+\hline
+Algorithm & Reliability & Sensitivity & F-Measure \\
+\hline
+ALLINONE & \input{clean/output/getPartitionAllinone.reliability} & \input{clean/output/getPartitionAllinone.sensitivity} & \input{clean/output/getPartitionAllinone.fmeasure} \\
+ALLINALL & \input{clean/output/getPartitionAllinall.reliability} & \input{clean/output/getPartitionAllinall.sensitivity} & \input{clean/output/getPartitionAllinall.fmeasure} \\
+Jaccard & \input{clean/output/jaccard.reliability} & \input{clean/output/jaccard.sensitivity} & \input{clean/output/jaccard.fmeasure} \\
+JaccardW & \input{clean/output/jaccardw.reliability} & \input{clean/output/jaccardw.sensitivity} & \input{clean/output/jaccardw.fmeasure} \\
+Cosine & \input{clean/output/cosine.reliability} & \input{clean/output/cosine.sensitivity} & \input{clean/output/cosine.fmeasure} \\
+Levenshtein & \input{clean/output/levenshtein.reliability} & \input{clean/output/levenshtein.sensitivity} & \input{clean/output/levenshtein.fmeasure} \\
+\hline
+\end{tabular}
+
+\captionof{figure}{text}\label{labelname}
+%\captionof{table}{text}\label{labelname}
+\end{center}
+
+#bold face,negrita,negreta
+\textbf{whatevs}

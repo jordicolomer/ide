@@ -1,0 +1,261 @@
+# man
+man -P cat man
+
+# j sql
+cat exucomp.head.csv | j sql "select *,CASE WHEN titleann LIKE '%CEO%' THEN 1 ELSE 0 END AS ceo from stdin" > out.csv
+
+# bash debug
+set -x
+[...]
+set +x
+
+# ps/eps to png
+convert -density 200 combine.bip.ps -flatten combine.bip.png
+
+# combine several images
+montage p2/size.csv.png p2/depth.csv.png p2/width.csv.png -tile 1x3 -geometry +1+3 p2.png
+montage p2/size.csv.png p2/depth.csv.png p2/width.csv.png -tile 1x3 -geometry +1+3 p2.png
+montage ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg" ".gvfs/A.zip/A/Mountain1.full.jpg"  -tile 3x3 -geo
+
+montage ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg" ".gvfs/A.zip/A/Forest2.full.jpg"  -tile 3x3 -geometry +3+3 3x3.png
+
+
+
+# select section of movie (1 sec after minute 1)
+mencoder -ovc copy -oac copy -ss 1:00 -endpos 0:01 in.avi -o out.avi
+
+# m'espatlla el video en .mov!
+mencoder -ovc copy -oac copy -ss 5:39 -endpos 0:17 MVI_1805.MOV -o smurfs_shooting.mov
+
+mencoder -oac copy -ovc copy -idx VTS_01_1.VOB  VTS_01_2.VOB -o in.mpeg
+mencoder in.mpeg -ovc copy -oac copy -of mpeg -ss 27:09 -endpos 0:31 -o jordi.mpg
+mencoder in.mpeg -ovc copy -oac copy -of mpeg -ss 29:09 -endpos 0:29 -o jordi2.mpg
+
+# extract video only (no chuta)
+mencoder -of rawvideo -nosound -ovc copy in.avi -o out.h264
+
+# extract audio only (wav)
+mplayer -vc null -vo null -ao pcm -benchmark file.avi
+mplayer -vc null -vo null -ao pcm -benchmark -ss 1:34:16 file.avi
+mplayer -dumpaudio in.flv
+ffmpeg -i in.avi -vn -acodec libmp3lame -ab 320k output.mp3
+
+mencoder out.mpeg -oac lavc -ovc lavc -of lavf -lavcopts acodec=mp2:vcodec=mpeg1video -lavfopts format=mpg -o output.mpg
+ffmpeg -i out.mpeg output.mpg
+ffmpeg -i out.mpeg -vcodec msmpeg4 -vtag MP43 -acodec libmp3lame msmpeg4.mpg
+ffmpeg -i out.mpeg -vcodec msmpeg4v2 -acodec libmp3lame msmpeg4v2.mpg
+ffmpeg -i out.mpeg -vcodec wmv7 -acodec libmp3lame wmv7.mpg
+
+vlc out.mpeg --sout='#transcode{vcodec=mp1v,acodec=mpga}:std{access=file,mux=mpeg1,url=vlc.mpeg}'
+
+# extract images from pdf (im is the prefix)
+pdfimages -j papers/IR2009.pdf papers/images/IR2009/im
+
+# split pdf
+pdftk A=one.pdf B=two.pdf cat A1-7 B1-5 A8 output combined.pdf
+pdftk A=a.pdf cat A1-3 output a13.pdf
+
+# merge pdf
+pdftk 1.pdf 2.pdf 3.pdf cat output 123.pdf
+
+# slit a file in 10 lines per file (3 digits)
+cat file | split -d -a 3 -l 10 - file.
+
+# pdf to text
+pdftotext -raw FILE -
+
+# print jpg
+convert *jpg allinone.pdf
+convert ".gvfs/A.zip/A/Forest2.full.jpg" out.pdf
+
+# bin to iso
+bchunk foo.bin foo.cue foo
+# uif to iso
+uif2iso in.uif output.iso
+
+# csv view
+csvtool readable -
+
+# pdf to text
+pdftotext Matplotlib.pdf > Matplotlib.txt
+
+# print until EOF is found http://awk.info/?doc/tip/sedInAwk.html
+awk '{print $0} /EOF/{exit}'
+
+# reduce image quality
+convert P1000031.JPG -resize 320x480 small-P1000031.JPG
+ls /tmp/a | sed -e 's#\(.*\)#convert /tmp/a/\1 -resize 2048x1536 \1#'|bash
+
+# append prepend
+ls | sed -e 's/\(.*\)/\1/'
+
+# change encoding
+j changeEncoding UTF8 ISO8859_1
+j changeEncoding ISO8859_1 UTF8
+
+debian/ubuntu
+sudo apt-get build-dep mupen64plus
+
+cd src
+sudo apt-get build-dep qtstalker
+apt-get source qtstalker
+apt-get -b source qtstalker
+qtstalker-0.32/src/qtstalker
+
+# pdf to png (to read)
+pdftk A=a.pdf cat A51 output a51.pdf
+convert -density 200 a51.pdf  -crop 1400x1400+0+170 -resize 1366x768 a51.png
+
+# backup / restore
+sudo dd if=/dev/sda1 | gzip > /media/Elements/sda1.small.gz
+cat /media/Elements/sda1.small.gz | gzip -dc | sudo dd of=/dev/sda1
+
+# vlc
+/home/kolom/.config/vlc/vlcrc
+global-key-prev=F7
+global-key-next=F8
+global-key-play=F9
+global-key-pause=F10
+#global-key-play-pause=F10 # no va be
+extraintf=hotkeys
+
+
+Canal 6002 (Sopcast)
+Canal 94332 (Sopcast)
+Canal 80517 (Sopcast)
+Canal 98701 (Sopcast)
+Canal 98660 (Sopcast)
+Canal 99537 (Sopcast)
+Canal 98534 (Sopcast)
+./sp-sc-auth sop://broker.sopcast.com:3912/6002 8080 8081
+mplayer http://localhost:8081/tv.asf
+
+./sp-sc-auth sop://broker.sopcast.com:3912/94332 8080 8081
+mplayer http://localhost:8081/tv.asf
+
+# remove non ascii
+tr -cd '\11\12\15\40-\176'
+
+# bk
+j bak.Main ftp /media/6A2BFB915B5DB7B3/bak/work/config.xml work 0
+ftp://localhost:2121/
+j bak.Main restore /media/4eda2947-b360-4179-a941-67658370aecf/bak/work/config.xml work 0 /home/ubuntu/md/hd
+ftp://localhost:2121/
+
+vlc /media/Elements/md/torrent/Fireplace\ screensaver\ HD\ 1280x720\ x264.mkv --loop --fullscreen --no-osd
+
+iconv -f UTF-16 -t UTF-8 'Director Other Associations20100416.csv' > 'Director Other Associations20100416.utf8.csv'
+
+#from latin-1 to ascii (remove accents)
+iconv -f ISO-8859-1 -t ASCII//TRANSLIT $f > /tmp/newfile
+
+til 21 00 && play md/min/haomail.wav
+
+# convert 1 to flv
+ffmpeg -i "/media/1TB/med/med/fotos/lumix/magic squares.mov" -vcodec flv -f flv -r 29.97 -s 320x240 -aspect 4:3 -b 300k -g 160 -cmp dct  -subcmp dct  -mbd 2 -flags +aic+cbp+mv0+mv4 -trellis 1 -ac 1 -ar 22050 -ab 56k "/media/1TB/med/med/fotos/lumix/magic squares.flv"
+
+# convert all to flv
+
+
+# check for '
+find | grep "'"
+
+find | grep mov$ -i > /tmp/a
+find | grep mp4$ -i >> /tmp/a
+find | grep avi$ -i >> /tmp/a
+find | grep vob$ -i >> /tmp/a
+
+cat /tmp/a | while read I; do
+   echo ffmpeg -i \'"$I"\' -vcodec flv -f flv -r 29.97 -s 320x240 -aspect 4:3 -b 300k -g 160 -cmp dct  -subcmp dct  -mbd 2 -flags +aic+cbp+mv0+mv4 -trellis 1 -ac 1 -ar 22050 -ab 56k \'"$I.flv"\'
+done > /tmp/b
+bash /tmp/b
+
+cat /tmp/a | while read I; do
+   echo rm \'"$I"\'
+done > /tmp/b
+bash /tmp/b
+
+# reverse invert
+tac
+
+# dvd rip
+cat VTS_02_*.VOB | ffmpeg -i - -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame -ab 128k 2.avi
+cat VTS_06_*.VOB | ffmpeg -i - -vcodec flv -f flv -r 29.97 -s 320x240 -aspect 4:3 -b 300k -g 160 -cmp dct  -subcmp dct  -mbd 2 -flags +aic+cbp+mv0+mv4 -trellis 1 -ac 1 -ar 22050 -ab 56k 6.flv
+
+# screen capture
+ffmpeg -f x11grab -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -r 25 -i :0.0 -sameq /media/data/out.mpg
+
+# split flv
+ffmpeg -i michelle.flv -ss 00:00:00 -t 00:00:02 -vcodec copy -acodec copy michelle2.txt
+
+# image stabilization
+transcode -J stabilize -i tmp/P1000858.MOV -y null,null -o dummy
+transcode -i tmp/P1000858.MOV -J  stabilize=maxshift=100=fieldsize=20 -y null,null -o /dev/null
+mplayer tmp/P1000858.MOV -nosound -vo yuv4mpeg:file=/dev/stdout -really-quiet | y4mstabilizer -n -a 0.8 -r 30 -s 100 | mplayer -cache 1000 /dev/stdin -noconsolecontrols -vf crop=500:380:70:50,denoise3d=3:3:5:5 -vo yuv4mpeg:file=temporary.yuv
+mplayer tmp/P1000858.MOV -nosound -vo yuv4mpeg:file=/dev/stdout -really-quiet | y4mstabilizer -n -a 0.8 -r 30 -s 100 | ffmpeg -i - -f avi -vcodec mpeg4 -b 800k -g 300 -bf 2 -acodec libmp3lame -ab 128k /tmp/1.avi
+mplayer tmp/P1000858.MOV -nosound -vo yuv4mpeg:file=/dev/stdout -really-quiet | y4mstabilizer -n -a 0.8 -r 30 -s 100 | mplayer /dev/stdin -noconsolecontrols -vf crop=500:380:70:50,denoise3d=3:3:5:5 -vo yuv4mpeg | mplayer -cache 1000 /dev/stdin -noconsolecontrols
+
+play /usr/share/sounds/ubuntu/stereo/system-ready.ogg && sleep $((10*60)) && play /usr/share/sounds/ubuntu/stereo/system-ready.ogg
+
+play -d synth 10000 brownnoise
+#sox -c2 -r44100 -n -t wav - synth 0.2 brownnoise vol 1.0 fade l 0 0.2 0.19 > brown.wav
+sox -c2 -r44100 -n -t wav - synth 900 brownnoise > brown15.wav
+sox -c2 -r44100 -n -t wav - synth 7200 brownnoise > brown2h.wav
+#sox -c2 -r44100 -n -t wav - synth 900 pinknoise > pink15.wav
+#sox -c2 -r44100 -n -t wav - synth 900 noise > white15.wav
+
+function wgets()
+{
+  local H='--header'
+  wget $H='Accept-Language: en-us,en;q=0.5' $H='Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' $H='Connection: keep-alive' -U 'Mozilla/5.0 (Windows NT 5.1; rv:10.0.2) Gecko/20100101 Firefox/10.0.2' --referer=http://www.google.com/ --header "Cookie: name=__utma=173272373.82097710.1344374322.1344374322.1344872366.2; __utmb=173272373.8.10.1344872366; __utmc=173272373; __utmz=173272373.1344374322.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utmv=173272373.|2=soph=exprt.qOper=1; I4SUserLocale=en_US; PREF=ID=27e7c62275529676:U=3d3f0f316e931f13:LD=en:CR=2:TM=1316909211:LM=1333034603:GM=1:S=audXgpz6nTgxyGQC; HSID=AUN_1RjV1Kl-i3XCY; APISID=DtsA7LnzHtfh-8Cj/ALJA5eUMTm7INLT9U; NID=62=3OAbm6_BkG3mk_ZbqRS16x2PHsemG5ZXyDn0LyE25bHIH8UiLU54veqfDk-aFVHWjygWoKrVUm9ROGfElarcxvUezaFBu4pVtJUo-w9cEs5WyQPF4009nrm77H8a-97iWiRm0HFBGMcORETyRjENhrzhuIeY6q2ZGo1v9NLd_a2F8bkBPDt6; SID=DQAAALcAAAD1CbIJ6U9nfCDJVCSUvpu1em0-UdhNfyECq5U5xLNwJdLMdq5_4uOUXsmyVpXpVszmFhp05BX-8FgomrfB7OAOXZpXn8Vg-_Bcgn7zEaWg0_fFYI1W_1cPbHOyRxmivwxv9wikVtNlG-yOD7jaR6vmJggr4bcmiAQv6_QQTJ9LvWmHTd13Slkp89Pne2s_P4QIbvcmoF-bGaWbCwDsm3Ag1KolyaY-zrxuiPkATmfVXEwi7F6-UCYDS9i4CrCbZiA; S=izeitgeist-ad-metrics=qzu3P17Z-wI" "$@";
+}
+
+# find top 10 largest files
+find . -type f -ls | sort -k 7 -r -n | head -10
+
+# uniq without sorting
+awk '!x[$0]++'
+
+http://www.google.com/reader/atom/feed/http://www.ivoox.com/podcast-relatos-de-terror-misterio_fg_f15416_filtro_1.xml?n=1000
+cat *.xml | grep -o '"[^"]*mp3"' | tr -d '"' | wget -i -
+
+function wgettmp
+{
+local url=$1;shift
+local file=$1;shift
+if test ! -e "$file";then
+if wget -c -O "$file".tmp "$url";then
+	mv "$file".tmp "$file"
+fi
+fi
+}
+
+
+function sleep_until {
+  seconds=$(( $(date -d "$*" +%s) - $(date +%s) )) # Use $* to eliminate need for quotes
+  echo "Sleeping for $seconds seconds"
+  sleep $seconds
+}
+
+function sleep_until {
+while test $1 != `date +%H:%M`; do
+    sleep 30
+done
+}
+
+sleep_until '23:00'
+
+# sum numbers line by line
+awk '{s+=$1} END {print s}'
+
+#add user to group
+sudo usermod -a -G vboxsf val
+
+# skip n lines
+tail -n +46
+
+# subSet fileA-fileB
+grep -F -x -v -f fileB fileA
+
+# j random, randomize lines
+shuf -

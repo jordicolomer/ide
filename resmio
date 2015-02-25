@@ -9,7 +9,7 @@ pep8 *.py
 git checkout master
 git pull origin master
 #create new branch
-git checkout -b experimental
+git checkout -b new
 #edit
 #commit
 git add .
@@ -165,3 +165,10 @@ PAGER=cat git diff
 
 # rename
 git branch -m <oldname> <newname>
+
+
+# download a single branch
+git checkout -b separate-by-language origin/separate-by-language
+
+# view changes
+git diff HEAD crawling/text_utils.py
