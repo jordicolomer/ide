@@ -96,7 +96,7 @@ git push origin 454-add-default-comment-parameter-to-button
 
 git clone https://github.com/resmio/hollow-butter.git
 
-
+~/.netrc
 machine github.com
        login <user>
        password <password>
